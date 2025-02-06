@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchRecipes = createAsyncThunk("recipes/fetchRecipes", async () => {
-  const response = await axios.get("https://www.themealdb.com/api/json/v1/1/search.php?s=");
-  return response.data.meals;
+export const fetchRecipes = createAsyncThunk("recipes/fetchRecipes", async (query = "") => {
+  const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+  return response.data.meals || []; // Ensure it returns an empty array if no recipes are found
 });
 
 const recipeSlice = createSlice({

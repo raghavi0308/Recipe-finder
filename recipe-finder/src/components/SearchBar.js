@@ -7,7 +7,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
 
   const handleSearch = () => {
-    dispatch(fetchRecipes(query));
+    dispatch(fetchRecipes(query.trim())); // Trim spaces to avoid errors
   };
 
   return (

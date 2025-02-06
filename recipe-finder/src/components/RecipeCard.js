@@ -1,17 +1,12 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addToFavorites } from '../redux/recipeSlice';
+import React from "react";
 
-function RecipeCard({ recipe }) {
-    const dispatch = useDispatch();
-
-    return (
-        <div>
-            <h2>{recipe.label}</h2>
-            <img src={recipe.image} alt={recipe.label} />
-            <button onClick={() => dispatch(addToFavorites(recipe))}>Add to Favorites</button>
-        </div>
-    );
-}
+const RecipeCard = ({ recipe }) => {
+  return (
+    <div className="recipe-card">
+      <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+      <h3>{recipe.strMeal}</h3>
+    </div>
+  );
+};
 
 export default RecipeCard;
